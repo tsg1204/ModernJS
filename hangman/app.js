@@ -19,28 +19,34 @@ window.addEventListener('keypress', (e) => {
 
 });
 
-getPuzzle((error, puzzle) => {
-    if (error) {
-        console.log(`Error: ${error}`);
+// getPuzzle('2').then((puzzle) => {
+//     console.log(puzzle);
+// }, (err) => {
+//     console.log(`Error: ${err}`);
+// });
+
+// //console.log('Do something else');
+
+
+// // Making HTTP request
+
+// getCountry("US").then((country) => {
+//     console.log(country);
+// }, (err) => {
+//     console.log(`Error: ${err}`);
+// })
+
+fetch(`http://puzzle.mead.io/puzzle`, {}).then((response) => {
+    if (response.status === 200) {
+        return response.json();
     } else {
-        console.log(puzzle);
+        throw new Error('Unable to fetch the puzzle');
     }
-    
-});
-
-//console.log('Do something else');
-
-
-// Making HTTP request
-
-getCountry("MX", (error, country) => {
-    if (error) {
-        console.log(`Error: ${error}`);
-    } else {
-        console.log(country);
-    }
+}).then((data) => {
+    console.log(data.puzzle);
+}).catch((error) => {
+    console.log(error);
 })
-
 
 
 
