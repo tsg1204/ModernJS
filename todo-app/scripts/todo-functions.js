@@ -56,7 +56,7 @@ const renderTodos = (todos, filters) => {
     } else {
         const emptyMessage = document.createElement('p');
         emptyMessage.classList.add('empty-message');
-        emptyMessage.textContent = 'No todos to show';       
+        emptyMessage.textContent = 'There are no todos to show';       
         todoEl.appendChild(emptyMessage);
     }    
 }
