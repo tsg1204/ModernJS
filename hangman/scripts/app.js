@@ -5,7 +5,7 @@
 const puzzleEl = document.querySelector('#puzzle');
 const guessesEl = document.querySelector('#guesses');
 const statusEl = document.querySelector('#status');
-let game1 = new Hangman('Car Parts', 2);
+let game1;
 
 // puzzleEl.textContent = game1.puzzle;
 // guessesEl.textContent = game1.statusMessage;
@@ -21,6 +21,12 @@ window.addEventListener('keypress', (e) => {
 const render = () => {
     puzzleEl.innerHTML = '';
     guessesEl.textContent = game1.statusMessage;    
+
+    game1.puzzle.split('').forEach((letter) => {
+        const letterEl = document.createElement('span');
+        letterEl.textContent = letter;
+        puzzleEl.appendChild(letterEl);
+    })
 }
 
 const startGame = async () => {
