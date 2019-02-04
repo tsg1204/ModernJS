@@ -11,6 +11,8 @@ const getPuzzle =  async (wordCount) => {
 
 };
 
+
+
 // const getPuzzleOLD = (wordCount) => {
 //     return fetch(`http://puzzle.mead.io/puzzle?wordCount=${wordCount}`).then((response) => {
 //         if (response.status === 200) {
@@ -90,3 +92,5 @@ const getCurrentCountry = async () => {
 //     requestCountry.open('GET', 'http://restcountries.eu/rest/v2/all');
 //     requestCountry.send();
 // })
+
+export {getPuzzle as default}
