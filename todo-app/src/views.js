@@ -42,10 +42,10 @@ const generateTodoDOM = (todo) => {
 // Render application todos based on filters
 const renderTodos = () => {
     const todoEl = document.querySelector('#todos');
-    const filters = getFilters();
+    const { searchText, hideCompleted} = getFilters();
     const filteredTodos = getTodos().filter((todo) => {
-        const searchTextMatch = todo.text.toLowerCase().includes(filters.searchText.toLowerCase())
-        const hideCompletedMatch = !filters.hideCompleted || !todo.completed;
+        const searchTextMatch = todo.text.toLowerCase().includes(searchText.toLowerCase())
+        const hideCompletedMatch = !hideCompleted || !todo.completed;
         
         return searchTextMatch && hideCompletedMatch;
     })
